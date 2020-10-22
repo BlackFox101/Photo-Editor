@@ -33,6 +33,20 @@ describe('selectedArea function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(selectedArea(editor, area)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: area,
+        artObjects: [],
+        primitives: [],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    };
+    expect(selectedArea(editor, area)).toStrictEqual(lastEditor);
   });
 })

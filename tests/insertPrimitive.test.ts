@@ -33,6 +33,20 @@ describe('insertPrimitive function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(insertPrimitive(editor, rectangle)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [],
+        primitives: [rectangle],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    }
+    expect(insertPrimitive(editor, rectangle)).toStrictEqual(lastEditor);
   });
 })

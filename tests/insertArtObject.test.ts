@@ -28,6 +28,20 @@ describe('changePrimitiveSize function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(insertArtObject(editor, artObject)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [artObject],
+        primitives: [],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    }
+    expect(insertArtObject(editor, artObject)).toStrictEqual(lastEditor);
   });
 })

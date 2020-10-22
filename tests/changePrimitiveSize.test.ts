@@ -23,6 +23,19 @@ describe('changePrimitiveSize function', () => {
         a: 1
       }
     }
+    const lastPrimitive: Rectangle = {
+      coordinates: {
+        x: 10,
+        y: 20,
+      },
+      size: {...size},
+      color: {
+        r: 40,
+        g: 50,
+        b: 60,
+        a: 1
+      }
+    }
     const editor: Editor = {
       canvas: {
         filter: null,
@@ -37,6 +50,20 @@ describe('changePrimitiveSize function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(changePrimitiveSize(editor, rectangle, size)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [],
+        primitives: [lastPrimitive],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    }
+    expect(changePrimitiveSize(editor, size)).toStrictEqual(lastEditor);
   });
 })

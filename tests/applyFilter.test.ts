@@ -6,7 +6,7 @@ describe('changePrimitiveSize function', () => {
     const filter: Filter =  'red'
     const editor: Editor = {
       canvas: {
-        filter: null,
+        filter: 'green',
         height: 100,
         width: 100,
         dedicatedArea: null,
@@ -18,6 +18,20 @@ describe('changePrimitiveSize function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(applyFilter(editor, filter)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: 'red',
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [],
+        primitives: [],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    }
+    expect(applyFilter(editor, filter)).toStrictEqual(lastEditor);
   });
 })

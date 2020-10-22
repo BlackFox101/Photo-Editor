@@ -28,7 +28,20 @@ describe('ImportImage function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(importImages(editor, image)).toBe(editor);
-    //expect(importImages(editor, image)).toContain(image);
+    let lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [],
+        primitives: [],
+        images: [image],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    };
+    expect(importImages(editor, image)).toStrictEqual(lastEditor);
   });
 })

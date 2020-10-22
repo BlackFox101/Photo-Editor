@@ -1,7 +1,7 @@
 import {changePrimitivePosition} from '../functions';
 import {Editor, Rectangle, CoordinatesBox} from '../type';
 
-describe('changePrimitiveSize function', () => {
+describe('changePrimitivePosition function', () => {
   test('returns Editor', () => {
     const coordinates: CoordinatesBox = {
       x: 30,
@@ -12,6 +12,19 @@ describe('changePrimitiveSize function', () => {
         x: 10,
         y: 20,
       },
+      size: {
+        height: 10,
+        width: 10,
+      },
+      color: {
+        r: 40,
+        g: 50,
+        b: 60,
+        a: 1
+      }
+    }
+    const lastPrimitive: Rectangle = {
+      coordinates: {...coordinates},
       size: {
         height: 10,
         width: 10,
@@ -37,6 +50,20 @@ describe('changePrimitiveSize function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(changePrimitivePosition(editor, rectangle, coordinates)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: null,
+        artObjects: [],
+        primitives: [lastPrimitive],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    }
+    expect(changePrimitivePosition(editor, coordinates)).toStrictEqual(lastEditor);
   });
 })

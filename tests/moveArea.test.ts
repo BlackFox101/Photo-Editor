@@ -31,6 +31,27 @@ describe('moveArea function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(moveArea(editor, coordinates)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: {
+          coordinates: coordinates,
+          size: {
+            height: 10,
+            width: 10,
+          },
+          color: null
+        },
+        artObjects: [],
+        primitives: [],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    };
+    expect(moveArea(editor, coordinates)).toStrictEqual(lastEditor);
   });
 })

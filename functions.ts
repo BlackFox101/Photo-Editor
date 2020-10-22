@@ -11,10 +11,14 @@ import {
   Filter
 } from "./type";
 
-function importImages(Editor: Editor, Image: Image) {
-  Editor.canvas.images.push(Image)
-
-  return Editor
+function importImages(editor: Editor, image: Image) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      images: [...editor.canvas.images, image]
+    }
+  }
 }
 
 /*function exportImages(Editor: Editor) {
@@ -25,97 +29,180 @@ function importImages(Editor: Editor, Image: Image) {
   return Editor
 }*/
 
-function selectedArea(Editor: Editor, area: Area) {
-  Editor.canvas.dedicatedArea = area;
-
-  return Editor
+function selectedArea(editor: Editor, area: Area) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      dedicatedArea: area
+    }
+  }
 }
 
-function moveArea(Editor: Editor, coordinates: CoordinatesBox) {
-  Editor.canvas.dedicatedArea.coordinates = coordinates
-
-  return Editor
+function moveArea(editor: Editor, coordinates: CoordinatesBox) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      dedicatedArea: {
+        ...editor.canvas.dedicatedArea,
+        coordinates: coordinates
+      }
+    }
+  }
 }
 
-function circumcisionArea(Editor: Editor) {
-  Editor.canvas.dedicatedArea.color.r = 255
-  Editor.canvas.dedicatedArea.color.g = 255
-  Editor.canvas.dedicatedArea.color.b = 255
-  Editor.canvas.dedicatedArea.color.a = 1
-
-  return Editor
+function circumcisionArea(editor: Editor) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      dedicatedArea: {
+        ...editor.canvas.dedicatedArea,
+        color: {
+          ...editor.canvas.dedicatedArea.color,
+          r: 255,
+          g: 255,
+          b: 255,
+          a: 1
+        }
+      }
+    }
+  }
 }
 
-function deleteArea(Editor: Editor) {
-  Editor.canvas.dedicatedArea.color.a = 0
-
-  return Editor
+function deleteArea(editor: Editor) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      dedicatedArea: {
+        ...editor.canvas.dedicatedArea,
+        color: {
+          ...editor.canvas.dedicatedArea.color,
+          a: 0
+          }
+      }
+    }
+  }
 }
 
-function insertText(Editor: Editor, text: TextBox) {
-  Editor.canvas.texts.push(text)
-
-  return Editor
+function insertText(editor: Editor, text: TextBox) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      texts: [...editor.canvas.texts, text]
+    }
+  }
 }
 
-function changeTextSize(Editor: Editor, text: TextBox, size: Size) {
-  let index = Editor.canvas.texts.indexOf(text);
-  Editor.canvas.texts[index].size = size
+function changeTextSize(editor: Editor, size: Size) {
+  const length = editor.canvas.texts.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      texts: [...editor.canvas.texts]
+    }}
+  newEditor.canvas.texts[length-1].size = {...size}
 
-  return Editor
+  return newEditor
 }
 
-function changeTextColor(Editor: Editor, text: TextBox, color: Color) {
-  let index = Editor.canvas.texts.indexOf(text);
-  Editor.canvas.texts[index].color = color
+function changeTextColor(editor: Editor, color: Color) {
+  const length = editor.canvas.texts.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      texts: [...editor.canvas.texts]
+    }}
+  newEditor.canvas.texts[length-1].color = {...color}
 
-  return Editor
+  return newEditor
 }
 
-function changeTextPosition(Editor: Editor, text: TextBox, coordinates: CoordinatesBox) {
-  let index = Editor.canvas.texts.indexOf(text);
-  Editor.canvas.texts[index].coordinates = coordinates
+function changeTextPosition(editor: Editor, coordinates: CoordinatesBox) {
+  const length = editor.canvas.texts.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      texts: [...editor.canvas.texts]
+    }}
+  newEditor.canvas.texts[length-1].coordinates = {...coordinates}
 
-  return Editor
+  return newEditor
 }
 
-function insertPrimitive(Editor: Editor, primitive: Primitive) {
-  Editor.canvas.primitives.push(primitive)
-
-  return Editor
+function insertPrimitive(editor: Editor, primitive: Primitive) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      primitives: [...editor.canvas.primitives, primitive]
+    }
+  }
 }
 
-function changePrimitiveSize(Editor: Editor, primitive: Primitive, size: Size) {
-  let index = Editor.canvas.primitives.indexOf(primitive);
-  Editor.canvas.primitives[index].size = size
+function changePrimitiveSize(editor: Editor, size: Size) {
+  const length = editor.canvas.primitives.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      primitives: [...editor.canvas.primitives]
+    }}
+  newEditor.canvas.primitives[length-1].size = {...size}
 
-  return Editor
+  return newEditor
 }
 
-function changePrimitivePosition(Editor: Editor, primitive: Primitive, coordinates: CoordinatesBox) {
-  let index = Editor.canvas.primitives.indexOf(primitive);
-  Editor.canvas.primitives[index].coordinates = coordinates
+function changePrimitivePosition(editor: Editor, coordinates: CoordinatesBox) {
+  const length = editor.canvas.primitives.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      primitives: [...editor.canvas.primitives]
+    }}
+  newEditor.canvas.primitives[length-1].coordinates = {...coordinates}
 
-  return Editor
+  return newEditor
 }
 
-function fillingPrimitive(Editor: Editor, primitive: Primitive, color: Color) {
-  let index = Editor.canvas.primitives.indexOf(primitive);
-  Editor.canvas.primitives[index].color = color
+function fillingPrimitive(editor: Editor, color: Color) {
+  const length = editor.canvas.primitives.length;
+  let newEditor = {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      primitives: [...editor.canvas.primitives]
+    }}
+  newEditor.canvas.primitives[length-1].color = {...color}
 
-  return Editor
+  return newEditor
 }
 
-function insertArtObject(Editor: Editor, artObject: ArtObject) {
-  Editor.canvas.artObjects.push(artObject)
-
-  return Editor
+function insertArtObject(editor: Editor, artObject: ArtObject) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      artObjects: [...editor.canvas.artObjects, artObject]
+    }
+  }
 }
 
-function applyFilter(Editor: Editor, filter: Filter) {
-  Editor.canvas.filter = filter
-
-  return Editor
+function applyFilter(editor: Editor, filter: Filter) {
+  return {
+    ...editor,
+    canvas: {
+      ...editor.canvas,
+      filter: filter
+    }
+  }
 }
 
 export {

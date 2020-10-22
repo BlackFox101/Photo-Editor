@@ -32,6 +32,35 @@ describe('circumcisionArea function', () => {
       selectedObject: null,
       stateList: null
     };
-    expect(circumcisionArea(editor)).toBe(editor);
+    const lastEditor: Editor = {
+      canvas: {
+        filter: null,
+        height: 100,
+        width: 100,
+        dedicatedArea: {
+          coordinates: {
+            x: 10,
+            y: 20,
+          },
+          size: {
+            height: 10,
+            width: 10,
+          },
+          color: {
+            r: 255,
+            g: 255,
+            b: 255,
+            a: 1
+          }
+        },
+        artObjects: [],
+        primitives: [],
+        images: [],
+        texts: [],
+      },
+      selectedObject: null,
+      stateList: null
+    };
+    expect(circumcisionArea(editor)).toStrictEqual(lastEditor);
   });
 })
