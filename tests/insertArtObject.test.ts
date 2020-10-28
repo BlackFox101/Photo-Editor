@@ -19,11 +19,10 @@ describe('changePrimitiveSize function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
       selectedObject: null,
       stateList: null
@@ -33,15 +32,14 @@ describe('changePrimitiveSize function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [artObject],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {...artObject},
       stateList: null
-    }
+    };
     expect(insertArtObject(editor, artObject)).toStrictEqual(lastEditor);
   });
 })

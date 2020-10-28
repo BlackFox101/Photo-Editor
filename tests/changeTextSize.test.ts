@@ -7,47 +7,31 @@ describe('changeTextSize function', () => {
         width: 50,
         height: 40
     }
-    const text: TextBox = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {
-        width: 20,
-        height: 10
-      },
-      color: {
-        r: 10,
-        g: 30,
-        b: 20,
-        a: 1
-      }
-    }
-    const lastTest: TextBox = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {...size},
-      color: {
-        r: 10,
-        g: 30,
-        b: 20,
-        a: 1
-      }
-    }
     const editor: Editor = {
       canvas: {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [text],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 50
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }},
       stateList: null
     };
     const lastEditor: Editor = {
@@ -55,13 +39,24 @@ describe('changeTextSize function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [text],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 50,
+        },
+        size: {...size},
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }
+      },
       stateList: null
     };
     expect(changeTextSize(editor, size)).toStrictEqual(lastEditor);

@@ -4,7 +4,7 @@ type Editor = {
   stateList: StateList
 }
 
-type SelectedObject = Image | TextBox | ArtObject | Primitive
+type SelectedObject = Image | TextBox | ArtObject | Primitive | Area | null
 
 type StateList = {
   undo: Undo,
@@ -22,11 +22,12 @@ type Canvas = {
   filter: Filter,
   height: number,
   width: number,
-  dedicatedArea: Area,
-  artObjects: ArtObject[],
-  primitives: Primitive[],
-  images: Image[],
-  texts: TextBox[],
+  data: ImageData
+}
+
+type ImageData = {
+  width: number,
+  height: number
 }
 
 type Primitive = Circle | Rectangle | Triangle;
@@ -47,7 +48,8 @@ type ObjectBox = {
 type Image  = {
   url: Url,
   coordinates: CoordinatesBox,
-  size: Size
+  size: Size,
+
 }
 type ArtObject = {
   url: Url,

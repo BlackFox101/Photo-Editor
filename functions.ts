@@ -10,14 +10,13 @@ import {
   Color,
   Filter
 } from "./type";
+import {deepFreeze} from "./deepFreeze";
 
 function importImages(editor: Editor, image: Image) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      images: [...editor.canvas.images, image]
-    }
+    selectedObject: {...image}
   }
 }
 
@@ -30,172 +29,142 @@ function importImages(editor: Editor, image: Image) {
 }*/
 
 function selectedArea(editor: Editor, area: Area) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      dedicatedArea: area
-    }
+    selectedObject: {...area}
   }
 }
 
 function moveArea(editor: Editor, coordinates: CoordinatesBox) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      dedicatedArea: {
-        ...editor.canvas.dedicatedArea,
-        coordinates: coordinates
-      }
+    selectedObject: {
+      ...editor.selectedObject,
+      coordinates
     }
   }
 }
 
 function circumcisionArea(editor: Editor) {
+  deepFreeze(editor);
+  let color = {
+    r: 255,
+    g: 255,
+    b: 255,
+    a: 1
+  }
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      dedicatedArea: {
-        ...editor.canvas.dedicatedArea,
-        color: {
-          ...editor.canvas.dedicatedArea.color,
-          r: 255,
-          g: 255,
-          b: 255,
-          a: 1
-        }
-      }
+    selectedObject: {
+      ...editor.selectedObject,
+      color
     }
   }
 }
 
 function deleteArea(editor: Editor) {
+  deepFreeze(editor);
+
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      dedicatedArea: {
-        ...editor.canvas.dedicatedArea,
-        color: {
-          ...editor.canvas.dedicatedArea.color,
-          a: 0
-          }
-      }
-    }
+    selectedObject: null
   }
 }
 
 function insertText(editor: Editor, text: TextBox) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      texts: [...editor.canvas.texts, text]
-    }
+    selectedObject: {...text}
   }
 }
 
 function changeTextSize(editor: Editor, size: Size) {
-  const length = editor.canvas.texts.length;
-  let newEditor = {
+  deepFreeze(editor);
+  return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      texts: [...editor.canvas.texts]
-    }}
-  newEditor.canvas.texts[length-1].size = {...size}
-
-  return newEditor
+    selectedObject: {
+      ...editor.selectedObject,
+      size: {...size}
+    }
+  }
 }
 
 function changeTextColor(editor: Editor, color: Color) {
-  const length = editor.canvas.texts.length;
-  let newEditor = {
+  deepFreeze(editor);
+  return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      texts: [...editor.canvas.texts]
-    }}
-  newEditor.canvas.texts[length-1].color = {...color}
-
-  return newEditor
+    selectedObject: {
+      ...editor.selectedObject,
+      color: {...color}
+    }
+  }
 }
 
 function changeTextPosition(editor: Editor, coordinates: CoordinatesBox) {
-  const length = editor.canvas.texts.length;
-  let newEditor = {
+  deepFreeze(editor);
+  return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      texts: [...editor.canvas.texts]
-    }}
-  newEditor.canvas.texts[length-1].coordinates = {...coordinates}
-
-  return newEditor
+    selectedObject: {
+      ...editor.selectedObject,
+      coordinates: {...coordinates}
+    }
+  }
 }
 
 function insertPrimitive(editor: Editor, primitive: Primitive) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      primitives: [...editor.canvas.primitives, primitive]
-    }
+    selectedObject: {...primitive}
   }
 }
 
 function changePrimitiveSize(editor: Editor, size: Size) {
-  const length = editor.canvas.primitives.length;
-  let newEditor = {
-    ...editor,
-    canvas: {
-      ...editor.canvas,
-      primitives: [...editor.canvas.primitives]
-    }}
-  newEditor.canvas.primitives[length-1].size = {...size}
-
-  return newEditor
-}
-
-function changePrimitivePosition(editor: Editor, coordinates: CoordinatesBox) {
-  const length = editor.canvas.primitives.length;
-  let newEditor = {
-    ...editor,
-    canvas: {
-      ...editor.canvas,
-      primitives: [...editor.canvas.primitives]
-    }}
-  newEditor.canvas.primitives[length-1].coordinates = {...coordinates}
-
-  return newEditor
-}
-
-function fillingPrimitive(editor: Editor, color: Color) {
-  const length = editor.canvas.primitives.length;
-  let newEditor = {
-    ...editor,
-    canvas: {
-      ...editor.canvas,
-      primitives: [...editor.canvas.primitives]
-    }}
-  newEditor.canvas.primitives[length-1].color = {...color}
-
-  return newEditor
-}
-
-function insertArtObject(editor: Editor, artObject: ArtObject) {
+  deepFreeze(editor);
   return {
     ...editor,
-    canvas: {
-      ...editor.canvas,
-      artObjects: [...editor.canvas.artObjects, artObject]
+    selectedObject: {
+      ...editor.selectedObject,
+      size
     }
   }
 }
 
+function changePrimitivePosition(editor: Editor, coordinates: CoordinatesBox) {
+  deepFreeze(editor);
+    return {
+      ...editor,
+      selectedObject: {
+        ...editor.selectedObject,
+        coordinates
+      }
+    }
+}
+
+function fillingPrimitive(editor: Editor, color: Color) {
+  deepFreeze(editor);
+  return {
+    ...editor,
+    selectedObject: {
+      ...editor.selectedObject,
+      color
+    }
+  }
+}
+
+function insertArtObject(editor: Editor, artObject: ArtObject) {
+  deepFreeze(editor);
+  return {
+    ...editor,
+    selectedObject: {...artObject}
+  }
+}
+
 function applyFilter(editor: Editor, filter: Filter) {
+  deepFreeze(editor);
   return {
     ...editor,
     canvas: {

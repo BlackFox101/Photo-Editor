@@ -1,5 +1,5 @@
 import {selectedArea} from '../functions';
-import {Area, Editor} from '../type';
+import {Area, Color, CoordinatesBox, Editor, Size} from '../type';
 
 describe('selectedArea function', () => {
   test('returns Editor', () => {
@@ -24,13 +24,25 @@ describe('selectedArea function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {coordinates: {
+          x: 10,
+          y: 50
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 0,
+          g: 0,
+          b: 0,
+          a: 0
+        }},
       stateList: null
     };
     const lastEditor: Editor = {
@@ -38,13 +50,12 @@ describe('selectedArea function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: area,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {...area},
       stateList: null
     };
     expect(selectedArea(editor, area)).toStrictEqual(lastEditor);

@@ -1,5 +1,5 @@
 import {changePrimitiveSize} from '../functions';
-import {Editor, Rectangle, Size} from '../type';
+import {Editor, Size} from '../type';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {
@@ -7,47 +7,32 @@ describe('changePrimitiveSize function', () => {
       width: 50,
       height: 30
     }
-    const rectangle: Rectangle = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {
-        height: 10,
-        width: 10,
-      },
-      color: {
-        r: 40,
-        g: 50,
-        b: 60,
-        a: 1
-      }
-    }
-    const lastPrimitive: Rectangle = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {...size},
-      color: {
-        r: 40,
-        g: 50,
-        b: 60,
-        a: 1
-      }
-    }
     const editor: Editor = {
       canvas: {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [rectangle],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 20,
+        },
+        size: {
+          height: 10,
+          width: 10,
+        },
+        color: {
+          r: 40,
+          g: 50,
+          b: 60,
+          a: 1
+        }
+      },
       stateList: null
     };
     const lastEditor: Editor = {
@@ -55,15 +40,26 @@ describe('changePrimitiveSize function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [lastPrimitive],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 20,
+        },
+        size: {...size},
+        color: {
+          r: 40,
+          g: 50,
+          b: 60,
+          a: 1
+        }
+      },
       stateList: null
-    }
+    };
     expect(changePrimitiveSize(editor, size)).toStrictEqual(lastEditor);
   });
 })

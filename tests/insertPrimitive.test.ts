@@ -24,13 +24,13 @@ describe('insertPrimitive function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: null
+      ,
       stateList: null
     };
     const lastEditor: Editor = {
@@ -38,15 +38,14 @@ describe('insertPrimitive function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [rectangle],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {...rectangle},
       stateList: null
-    }
+    };
     expect(insertPrimitive(editor, rectangle)).toStrictEqual(lastEditor);
   });
 })

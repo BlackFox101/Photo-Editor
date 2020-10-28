@@ -19,11 +19,10 @@ describe('ImportImage function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
       selectedObject: null,
       stateList: null
@@ -33,13 +32,12 @@ describe('ImportImage function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [image],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {...image},
       stateList: null
     };
     expect(importImages(editor, image)).toStrictEqual(lastEditor);

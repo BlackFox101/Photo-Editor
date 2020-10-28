@@ -8,28 +8,26 @@ describe('deleteArea function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: {
-          coordinates: {
-            x: 10,
-            y: 20,
-          },
-          size: {
-            height: 10,
-            width: 10,
-          },
-          color: {
-            r: 40,
-            g: 50,
-            b: 60,
-            a: 1
-          }
-        },
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 50
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }},
       stateList: null
     };
     const lastEditor: Editor = {
@@ -37,26 +35,10 @@ describe('deleteArea function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: {
-          coordinates: {
-            x: 10,
-            y: 20,
-          },
-          size: {
-            height: 10,
-            width: 10,
-          },
-          color: {
-            r: 40,
-            g: 50,
-            b: 60,
-            a: 0
-          }
-        },
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
       selectedObject: null,
       stateList: null

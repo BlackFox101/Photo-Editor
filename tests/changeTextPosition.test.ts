@@ -1,5 +1,5 @@
 import {changeTextPosition} from '../functions';
-import {Editor, TextBox, CoordinatesBox} from '../type';
+import {Editor, TextBox, CoordinatesBox, Color} from '../type';
 
 describe('changeTextPosition function', () => {
   test('returns Editor', () => {
@@ -7,47 +7,31 @@ describe('changeTextPosition function', () => {
       x: 40,
       y: 50
     }
-    const text: TextBox = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {
-        width: 20,
-        height: 10
-      },
-      color: {
-        r: 10,
-        g: 30,
-        b: 20,
-        a: 1
-      }
-    }
-    const lastText: TextBox = {
-      coordinates: {...coordinates},
-      size: {
-        width: 20,
-        height: 10
-      },
-      color: {
-        r: 10,
-        g: 30,
-        b: 20,
-        a: 1
-      }
-    }
     const editor: Editor = {
       canvas: {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [text],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 30
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }},
       stateList: null
     };
     const lastEditor: Editor = {
@@ -55,15 +39,29 @@ describe('changeTextPosition function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [text],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 40,
+          y: 50
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }
+      },
       stateList: null
-    }
-    expect(changeTextPosition(editor, coordinates)).toStrictEqual(editor);
+    };
+    expect(changeTextPosition(editor, coordinates)).toStrictEqual(lastEditor);
   });
 })

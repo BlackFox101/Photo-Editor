@@ -9,45 +9,31 @@ describe('changeTextColor function', () => {
       b: 10,
       a: 0.5
     }
-    const text: TextBox = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {
-        width: 20,
-        height: 10
-      },
-      color: {
-        r: 10,
-        g: 30,
-        b: 20,
-        a: 1
-      }
-    }
-    const lastText: TextBox = {
-      coordinates: {
-        x: 10,
-        y: 20,
-      },
-      size: {
-        width: 20,
-        height: 10
-      },
-      color: {...color}
-    }
     const editor: Editor = {
       canvas: {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [text],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 50
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {
+          r: 1,
+          g: 20,
+          b: 150,
+          a: 1
+        }},
       stateList: null
     };
     const lastEditor: Editor = {
@@ -55,13 +41,22 @@ describe('changeTextColor function', () => {
         filter: null,
         height: 100,
         width: 100,
-        dedicatedArea: null,
-        artObjects: [],
-        primitives: [],
-        images: [],
-        texts: [lastText],
+        data: {
+          width: 100,
+          height: 100
+        }
       },
-      selectedObject: null,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 50,
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
+        color: {...color}
+      },
       stateList: null
     };
     expect(changeTextColor(editor, color)).toStrictEqual(lastEditor);
