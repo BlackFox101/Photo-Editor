@@ -1,5 +1,5 @@
 import {changePrimitivePosition} from '../functions';
-import {Editor, Rectangle, CoordinatesBox} from '../type';
+import {Editor, CoordinatesBox} from '../types';
 
 describe('changePrimitivePosition function', () => {
   test('returns Editor', () => {

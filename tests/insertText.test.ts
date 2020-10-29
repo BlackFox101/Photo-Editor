@@ -1,5 +1,5 @@
 import {insertText} from '../functions';
-import {Editor, TextBox} from '../type';
+import {Editor, TextBox} from '../types';
 
 describe('insertText function', () => {
   test('returns Editor', () => {

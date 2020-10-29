@@ -1,4 +1,6 @@
-function deepFreeze (o) {
+import { Canvas, SelectedObject, StateList } from "./types";
+
+function deepFreeze(o: { [x: string]: any; canvas?: Canvas; selectedObject?: SelectedObject; stateList?: StateList; hasOwnProperty?: any; }) {
   Object.freeze(o);
 
   Object.getOwnPropertyNames(o).forEach(function (prop) {
@@ -11,6 +13,6 @@ function deepFreeze (o) {
   });
 
   return o;
-};
+}
 
 export {deepFreeze}

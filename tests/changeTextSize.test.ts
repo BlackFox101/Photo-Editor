@@ -1,5 +1,5 @@
 import {changeTextSize} from '../functions';
-import {Editor, TextBox, Size} from '../type';
+import {Editor, Size} from '../types';
 
 describe('changeTextSize function', () => {
   test('returns Editor', () => {

@@ -9,7 +9,7 @@ import {
   Size,
   Color,
   Filter
-} from "./type";
+} from "./types";
 import {deepFreeze} from "./deepFreeze";
 
 function importImages(editor: Editor, image: Image) {

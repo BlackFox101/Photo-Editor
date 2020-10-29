@@ -1,5 +1,5 @@
 import {changeTextColor} from '../functions';
-import {Editor, TextBox, Color} from '../type';
+import {Editor, Color} from '../types';
 
 describe('changeTextColor function', () => {
   test('returns Editor', () => {

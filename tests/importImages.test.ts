@@ -1,9 +1,9 @@
 import {importImages} from '../functions';
-import {Image, Editor} from '../type';
+import {Image, Editor} from '../types';
 
 describe('ImportImage function', () => {
   test('returns Editor', () => {
-    const image: Image = {
+    let image: Image = {
       url: '../images',
       coordinates: {
         x: 0,
@@ -13,8 +13,8 @@ describe('ImportImage function', () => {
         width: 10,
         height: 10
       }
-    };
-    const editor: Editor = {
+    }
+    let editor: Editor = {
       canvas: {
         filter: null,
         height: 100,
@@ -26,7 +26,7 @@ describe('ImportImage function', () => {
       },
       selectedObject: null,
       stateList: null
-    };
+    }
     let lastEditor: Editor = {
       canvas: {
         filter: null,
@@ -39,7 +39,7 @@ describe('ImportImage function', () => {
       },
       selectedObject: {...image},
       stateList: null
-    };
+    }
     expect(importImages(editor, image)).toStrictEqual(lastEditor);
   });
 })

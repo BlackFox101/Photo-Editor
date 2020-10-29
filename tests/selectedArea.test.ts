@@ -1,5 +1,5 @@
 import {selectedArea} from '../functions';
-import {Area, Color, CoordinatesBox, Editor, Size} from '../type';
+import {Area, Editor} from '../types';
 
 describe('selectedArea function', () => {
   test('returns Editor', () => {

@@ -1,5 +1,5 @@
 import {insertArtObject} from '../functions';
-import {Editor, ArtObject} from '../type';
+import {Editor, ArtObject} from '../types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {

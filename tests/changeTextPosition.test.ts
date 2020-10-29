@@ -1,9 +1,9 @@
 import {changeTextPosition} from '../functions';
-import {Editor, TextBox, CoordinatesBox, Color} from '../type';
+import {Editor, CoordinatesBox} from '../types';
 
 describe('changeTextPosition function', () => {
   test('returns Editor', () => {
-    const coordinates: CoordinatesBox = {
+    const coordinates = {
       x: 40,
       y: 50
     }

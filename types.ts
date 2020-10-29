@@ -8,8 +8,8 @@ type SelectedObject = Image | TextBox | ArtObject | Primitive | Area | null
 
 type StateList = {
   undo: Undo,
-  redo: Redo
-}
+  redo: Redo,
+} | null
 
 type Undo = {
   stack: Canvas[]
@@ -19,7 +19,7 @@ type Redo = {
 }
 
 type Canvas = {
-  filter: Filter,
+  filter: Filter | null,
   height: number,
   width: number,
   data: ImageData
@@ -75,7 +75,7 @@ type Size = {
   height: number
 }
 
-export {
+export type {
   Editor,
   SelectedObject,
   StateList,

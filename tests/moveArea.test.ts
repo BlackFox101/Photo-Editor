@@ -1,5 +1,5 @@
 import {moveArea} from '../functions';
-import {Area, CoordinatesBox, Editor} from '../type';
+import {Area, CoordinatesBox, Editor} from '../types';
 
 describe('moveArea function', () => {
   test('returns Editor', () => {

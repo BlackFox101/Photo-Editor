@@ -1,5 +1,5 @@
 import {applyFilter} from '../functions';
-import {Editor, Filter} from '../type';
+import {Editor, Filter} from '../types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {

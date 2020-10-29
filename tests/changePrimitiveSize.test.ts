@@ -1,5 +1,5 @@
 import {changePrimitiveSize} from '../functions';
-import {Editor, Size} from '../type';
+import {Editor, Size} from '../types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {

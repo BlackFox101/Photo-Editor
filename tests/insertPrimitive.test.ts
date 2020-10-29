@@ -1,5 +1,5 @@
 import {insertPrimitive} from '../functions';
-import {Editor, Rectangle} from '../type';
+import {Editor, Rectangle} from '../types';
 
 describe('insertPrimitive function', () => {
   test('returns Editor', () => {

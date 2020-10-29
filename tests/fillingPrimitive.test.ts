@@ -1,5 +1,5 @@
 import {fillingPrimitive} from '../functions';
-import {Editor, Rectangle, Color} from '../type';
+import {Editor, Color} from '../types';
 
 describe('fillingPrimitive function', () => {
   test('returns Editor', () => {

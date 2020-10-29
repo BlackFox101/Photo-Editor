@@ -1,25 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="043cef91-7a97-43d0-ba11-cdeaffddcad0" name="Default Changelist" comment="" />
+    <list default="true" id="f18df849-c5a0-4268-9ddd-881c5df8f43a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,17 +10,7 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProjectId" id="1ibP2VvW8mGOeKJ3BRQ4p94glTN" />
+  <component name="ProjectId" id="1jZZFK3WvGQQ9nTWI7B9BLdIt8y" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -48,41 +20,23 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="ts.external.directory.path" value="C:\Users\sad_a\Desktop\Study\Photo-Editor\node_modules\typescript\lib" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\sad_a\Desktop\Study\Photo-Editor\tests" />
-      <recent name="C:\Users\sad_a\Desktop\Study\Photo-Editor" />
-    </key>
+    <property name="ts.external.directory.path" value="C:\Users\sad_a\Desktop\Study\my-app\node_modules\typescript\lib" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="043cef91-7a97-43d0-ba11-cdeaffddcad0" name="Default Changelist" comment="" />
-      <created>1602173111780</created>
+      <changelist id="f18df849-c5a0-4268-9ddd-881c5df8f43a" name="Default Changelist" comment="" />
+      <created>1604013468330</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1602173111780</updated>
-      <workItem from="1602173113069" duration="1291000" />
-      <workItem from="1602176695157" duration="360000" />
-      <workItem from="1602225685646" duration="848000" />
-      <workItem from="1602618358207" duration="855000" />
-      <workItem from="1602619225399" duration="32000" />
-      <workItem from="1602620449474" duration="4256000" />
-      <workItem from="1602796351072" duration="7973000" />
-      <workItem from="1602806851190" duration="368000" />
-      <workItem from="1602826491907" duration="9050000" />
-      <workItem from="1603031887665" duration="17000" />
-      <workItem from="1603393401256" duration="3575000" />
-      <workItem from="1603397704171" duration="1322000" />
-      <workItem from="1603399131574" duration="79000" />
-      <workItem from="1603399226659" duration="53000" />
-      <workItem from="1603399291133" duration="669000" />
-      <workItem from="1603434450600" duration="6069000" />
+      <updated>1604013468330</updated>
+      <workItem from="1604013471706" duration="1850000" />
     </task>
     <servers />
   </component>
@@ -90,37 +44,16 @@
     <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603397820477">
+    <state x="115" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604013496550">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1603397820477" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1603399959458">
+    <state x="115" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1604013496550" />
+    <state x="165" y="170" key="FileChooserDialogImpl" timestamp="1604015321741">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603399959458" />
-    <state x="478" y="116" width="579" height="592" key="find.popup" timestamp="1602800895749">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="116" width="579" height="592" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1602800895749" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1603439785717">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603439785717" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1602805205302">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1602805205302" />
+    <state x="165" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1604015321741" />
   </component>
 </project>

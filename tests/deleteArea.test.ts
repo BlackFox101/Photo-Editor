@@ -1,5 +1,5 @@
 import {deleteArea} from '../functions';
-import {Editor} from '../type';
+import {Editor} from '../types';
 
 describe('deleteArea function', () => {
   test('returns Editor', () => {

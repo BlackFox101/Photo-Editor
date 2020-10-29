@@ -1,5 +1,5 @@
 import {circumcisionArea} from '../functions';
-import {Editor} from '../type';
+import {Editor} from '../types';
 
 describe('circumcisionArea function', () => {
   test('returns Editor', () => {
