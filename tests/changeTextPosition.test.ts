@@ -1,67 +1,57 @@
-import {changeTextPosition} from '../functions';
-import {Editor, CoordinatesBox} from '../types';
+import {changeTextPosition} from '../src/functions/functions';
+import {Editor, CoordinatesBox, TextBox, Color} from '../src/types';
 
 describe('changeTextPosition function', () => {
   test('returns Editor', () => {
-    const coordinates = {
-      x: 40,
-      y: 50
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
+    const text: TextBox = {
+      coordinates: {
+        x: 10,
+        y: 20,
+      },
+      size: {
+        width: 20,
+        height: 10
+      },
+      color: {
+        r: 10,
+        g: 30,
+        b: 20,
+        a: 1
+      }
     }
     const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 10,
-          y: 30
-        },
-        size: {
-          width: 10,
-          height: 10
-        },
-        color: {
-          r: 1,
-          g: 20,
-          b: 150,
-          a: 1
-        }},
-      stateList: null
-    };
+      canvas: imageData,
+      selectedObject: text
+    }
+    const coordinates: CoordinatesBox = {
+      x: 50,
+      y: 50
+    }
     const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
+      canvas: imageData,
       selectedObject: {
         coordinates: {
-          x: 40,
+          x: 50,
           y: 50
         },
         size: {
-          width: 10,
+          width: 20,
           height: 10
         },
         color: {
-          r: 1,
-          g: 20,
-          b: 150,
+          r: 10,
+          g: 30,
+          b: 20,
           a: 1
         }
       },
-      stateList: null
-    };
+    }
     expect(changeTextPosition(editor, coordinates)).toStrictEqual(lastEditor);
   });
 })

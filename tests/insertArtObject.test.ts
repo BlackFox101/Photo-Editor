@@ -1,5 +1,5 @@
-import {insertArtObject} from '../functions';
-import {Editor, ArtObject} from '../types';
+import {insertArtObject} from '../src/functions/functions';
+import {Editor, ArtObject} from '../src/types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {
@@ -14,32 +14,20 @@ describe('changePrimitiveSize function', () => {
         height: 50
       }
     }
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
     const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: null,
-      stateList: null
+      canvas: imageData,
+      selectedObject: null
     };
     const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {...artObject},
-      stateList: null
-    };
+      canvas: imageData,
+      selectedObject: {...artObject}
+    }
     expect(insertArtObject(editor, artObject)).toStrictEqual(lastEditor);
   });
 })

@@ -1,7 +1,6 @@
 import {
   Editor,
   Primitive,
-  Image,
   ArtObject,
   Area,
   TextBox,
@@ -9,14 +8,13 @@ import {
   Size,
   Color,
   Filter
-} from "./types";
-import {deepFreeze} from "./deepFreeze";
+} from "../types";
+import {deepFreeze} from "../deepFreeze";
 
-function importImages(editor: Editor, image: Image) {
-  deepFreeze(editor);
+function importImages(editor: Editor, image: ImageData): Editor {
   return {
     ...editor,
-    selectedObject: {...image}
+    selectedObject: image
   }
 }
 
@@ -29,15 +27,13 @@ function importImages(editor: Editor, image: Image) {
 }*/
 
 function selectedArea(editor: Editor, area: Area) {
-  deepFreeze(editor);
   return {
     ...editor,
-    selectedObject: {...area}
+    selectedObject: area
   }
 }
 
 function moveArea(editor: Editor, coordinates: CoordinatesBox) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -47,25 +43,16 @@ function moveArea(editor: Editor, coordinates: CoordinatesBox) {
   }
 }
 
-function circumcisionArea(editor: Editor) {
-  deepFreeze(editor);
-  let color = {
-    r: 255,
-    g: 255,
-    b: 255,
-    a: 1
-  }
+function cutArea(editor: Editor) {
+  // Пиксели сделать белыми
   return {
     ...editor,
-    selectedObject: {
-      ...editor.selectedObject,
-      color
-    }
+    selectedObject: null
   }
 }
 
 function deleteArea(editor: Editor) {
-  deepFreeze(editor);
+  // Пиксели сделать прозрачными
 
   return {
     ...editor,
@@ -74,7 +61,6 @@ function deleteArea(editor: Editor) {
 }
 
 function insertText(editor: Editor, text: TextBox) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {...text}
@@ -82,7 +68,6 @@ function insertText(editor: Editor, text: TextBox) {
 }
 
 function changeTextSize(editor: Editor, size: Size) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -93,7 +78,6 @@ function changeTextSize(editor: Editor, size: Size) {
 }
 
 function changeTextColor(editor: Editor, color: Color) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -104,7 +88,6 @@ function changeTextColor(editor: Editor, color: Color) {
 }
 
 function changeTextPosition(editor: Editor, coordinates: CoordinatesBox) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -115,7 +98,6 @@ function changeTextPosition(editor: Editor, coordinates: CoordinatesBox) {
 }
 
 function insertPrimitive(editor: Editor, primitive: Primitive) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {...primitive}
@@ -123,7 +105,6 @@ function insertPrimitive(editor: Editor, primitive: Primitive) {
 }
 
 function changePrimitiveSize(editor: Editor, size: Size) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -134,7 +115,6 @@ function changePrimitiveSize(editor: Editor, size: Size) {
 }
 
 function changePrimitivePosition(editor: Editor, coordinates: CoordinatesBox) {
-  deepFreeze(editor);
     return {
       ...editor,
       selectedObject: {
@@ -145,7 +125,6 @@ function changePrimitivePosition(editor: Editor, coordinates: CoordinatesBox) {
 }
 
 function fillingPrimitive(editor: Editor, color: Color) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {
@@ -156,7 +135,6 @@ function fillingPrimitive(editor: Editor, color: Color) {
 }
 
 function insertArtObject(editor: Editor, artObject: ArtObject) {
-  deepFreeze(editor);
   return {
     ...editor,
     selectedObject: {...artObject}
@@ -164,12 +142,13 @@ function insertArtObject(editor: Editor, artObject: ArtObject) {
 }
 
 function applyFilter(editor: Editor, filter: Filter) {
-  deepFreeze(editor);
+  if (filter == "red") {
+    // Преобразовать все пиксели в canvas
+  }
   return {
     ...editor,
     canvas: {
-      ...editor.canvas,
-      filter: filter
+      ...editor.canvas
     }
   }
 }
@@ -178,7 +157,7 @@ export {
   importImages,
   selectedArea,
   moveArea,
-  circumcisionArea,
+  cutArea,
   deleteArea,
   insertText,
   changeTextSize,

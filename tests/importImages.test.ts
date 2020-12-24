@@ -1,44 +1,27 @@
-import {importImages} from '../functions';
-import {Image, Editor} from '../types';
+import {importImages} from '../src/functions/functions';
+import {Editor} from '../src/types';
 
 describe('ImportImage function', () => {
   test('returns Editor', () => {
-    let image: Image = {
-      url: '../images',
-      coordinates: {
-        x: 0,
-        y: 0
-      },
-      size: {
-        width: 10,
-        height: 10
-      }
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
     }
+    imageData.data.fill(255);
+    const image: ImageData = {
+      width: 10,
+      height: 10,
+      data: new Uint8ClampedArray(100)
+    }
+    image.data.fill(100);
     let editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: null,
-      stateList: null
+      canvas: imageData,
+      selectedObject: null
     }
     let lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {...image},
-      stateList: null
+      canvas: imageData,
+      selectedObject: image,
     }
     expect(importImages(editor, image)).toStrictEqual(lastEditor);
   });

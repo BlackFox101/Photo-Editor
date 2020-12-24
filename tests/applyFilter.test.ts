@@ -1,35 +1,23 @@
-import {applyFilter} from '../functions';
-import {Editor, Filter} from '../types';
+import {applyFilter} from '../src/functions/functions';
+import {Editor, Filter} from '../src/types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {
-    const filter: Filter =  "red"
+    const filter: Filter =  "red";
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
     const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: null,
-      stateList: null
+      canvas: imageData,
+      selectedObject: null
     };
     const lastEditor: Editor = {
-      canvas: {
-        filter: "red",
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: null,
-      stateList: null
-    };
+      canvas: imageData,
+      selectedObject: null
+    }
     expect(applyFilter(editor, filter)).toStrictEqual(lastEditor);
   });
 })

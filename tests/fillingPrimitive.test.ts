@@ -1,24 +1,42 @@
-import {fillingPrimitive} from '../functions';
-import {Editor, Color} from '../types';
+import {fillingPrimitive} from '../src/functions/functions';
+import {Editor, Color, Rectangle} from '../src/types';
 
 describe('fillingPrimitive function', () => {
   test('returns Editor', () => {
+    const rectangle: Rectangle = {
+      coordinates: {
+        x: 10,
+        y: 20,
+      },
+      size: {
+        height: 10,
+        width: 10,
+      },
+      color: {
+        r: 40,
+        g: 50,
+        b: 60,
+        a: 1
+      }
+    }
     const color: Color = {
       r: 150,
       g: 255,
       b: 140,
       a: 1
     }
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
     const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
+      canvas: imageData,
+      selectedObject: rectangle
+    };
+    const lastEditor: Editor = {
+      canvas: imageData,
       selectedObject: {
         coordinates: {
           x: 10,
@@ -28,38 +46,9 @@ describe('fillingPrimitive function', () => {
           height: 10,
           width: 10,
         },
-        color: {
-          r: 40,
-          g: 50,
-          b: 60,
-          a: 1
-        }
-      },
-      stateList: null
-    };
-    const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 10,
-          y: 20,
-        },
-        size: {
-          height: 10,
-          width: 10
-        },
-        color: {...color}
-      },
-      stateList: null
-    };
+        color: color
+      }
+    }
     expect(fillingPrimitive(editor, color)).toStrictEqual(lastEditor);
   });
 })

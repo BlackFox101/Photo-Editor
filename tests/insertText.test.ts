@@ -1,8 +1,14 @@
-import {insertText} from '../functions';
-import {Editor, TextBox} from '../types';
+import {insertText} from '../src/functions/functions';
+import {Editor, TextBox} from '../src/types';
 
 describe('insertText function', () => {
   test('returns Editor', () => {
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
     const text: TextBox = {
       coordinates: {
         x: 10,
@@ -19,61 +25,15 @@ describe('insertText function', () => {
         a: 1
       }
     }
-    const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 10,
-          y: 50
-        },
-        size: {
-          width: 10,
-          height: 10
-        },
-        color: {
-          r: 1,
-          g: 20,
-          b: 150,
-          a: 1
-        }},
-      stateList: null
-    };
-    const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 10,
-          y: 20,
-        },
-        size: {
-          width: 20,
-          height: 10
-        },
-        color: {
-          r: 10,
-          g: 30,
-          b: 20,
-          a: 1
-        }
-      },
-      stateList: null
-    };
+    let editor: Editor = {
+      canvas: imageData,
+      selectedObject: null
+    }
+
+    let lastEditor: Editor = {
+      canvas: imageData,
+      selectedObject: {...text},
+    }
     expect(insertText(editor, text)).toStrictEqual(lastEditor);
   });
 })

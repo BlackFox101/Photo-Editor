@@ -1,0 +1,57 @@
+.divPopupSettings {
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+}
+
+.divPopupSettings span {
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.popupSettings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 270px;
+    margin: 100px auto 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.sizePadding {
+    padding-bottom: 15px;
+}
+
+#standard-size-small, #standard-size-normal {
+    width: 220px;
+}
+
+.popupSettings button {
+    height: 40px;
+    font-size: 20px;
+    margin: 20px 0 0 0;
+    width: 100px;
+    border: 2px solid #7E7E7E;
+    border-radius: 3px;
+}
+
+.popupSettings button:hover {
+    border: 2px solid #727373;
+}
+
+.popupSettings button:hover
+{
+    height: 40px;
+    border: 1px solid #e3e3e3;
+    background-color: #e7e7e7;
+}
+
+.cross {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+}

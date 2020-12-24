@@ -1,48 +1,33 @@
-import {deleteArea} from '../functions';
-import {Editor} from '../types';
+import {deleteArea} from '../src/functions/functions';
+import {Editor} from '../src/types';
 
 describe('deleteArea function', () => {
   test('returns Editor', () => {
-    const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
+
+    let editor: Editor = {
+      canvas: imageData,
       selectedObject: {
         coordinates: {
           x: 10,
-          y: 50
+          y: 10
         },
         size: {
           width: 10,
           height: 10
         },
-        color: {
-          r: 1,
-          g: 20,
-          b: 150,
-          a: 1
-        }},
-      stateList: null
-    };
-    const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
+      }
+    }
+
+    let lastEditor: Editor = {
+      canvas: imageData,
       selectedObject: null,
-      stateList: null
-    };
+    }
     expect(deleteArea(editor)).toStrictEqual(lastEditor);
   });
 })

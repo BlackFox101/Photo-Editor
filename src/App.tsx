@@ -1,21 +1,21 @@
 import React from 'react';
+import ToolBar from "./components/Toolbar/ToolBar";
+import './App.css';
+import {Editor} from "./types";
+import Canvas from "./components/Canvas/Canvas";
+import PopupNewCanvas from "./components/Popup/PopupNewCanvas";
+import PopupExport from "./components/Popup/PopupExport"
 
-function App() {
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={'container'}>
+      <ToolBar />
+      <div className={'work_place'}>
+        <Canvas editor={props.editor} />
+      </div>
+      <PopupNewCanvas editor={props.editor}/>
+      <PopupExport />
     </div>
   );
 }

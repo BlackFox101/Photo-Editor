@@ -1,5 +1,5 @@
-import {changePrimitiveSize} from '../functions';
-import {Editor, Size} from '../types';
+import {changePrimitiveSize} from '../src/functions/functions';
+import {CoordinatesBox, Editor, Rectangle, Size} from '../src/types';
 
 describe('changePrimitiveSize function', () => {
   test('returns Editor', () => {
@@ -7,24 +7,42 @@ describe('changePrimitiveSize function', () => {
       width: 50,
       height: 30
     }
-    const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
+    const rectangle: Rectangle = {
+      coordinates: {
+        x: 10,
+        y: 20
       },
+      size: {
+        height: 10,
+        width: 10,
+      },
+      color: {
+        r: 40,
+        g: 50,
+        b: 60,
+        a: 1
+      }
+    }
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
+    const editor: Editor = {
+      canvas: imageData,
+      selectedObject: rectangle
+    }
+    const lastEditor: Editor = {
+      canvas: imageData,
       selectedObject: {
         coordinates: {
           x: 10,
-          y: 20,
+          y: 20
         },
         size: {
-          height: 10,
-          width: 10,
+          width: 50,
+          height: 30
         },
         color: {
           r: 40,
@@ -32,34 +50,8 @@ describe('changePrimitiveSize function', () => {
           b: 60,
           a: 1
         }
-      },
-      stateList: null
-    };
-    const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 10,
-          y: 20,
-        },
-        size: {...size},
-        color: {
-          r: 40,
-          g: 50,
-          b: 60,
-          a: 1
-        }
-      },
-      stateList: null
-    };
+      }
+    }
     expect(changePrimitiveSize(editor, size)).toStrictEqual(lastEditor);
   });
 })

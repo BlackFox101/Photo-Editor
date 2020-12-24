@@ -1,68 +1,43 @@
-import {moveArea} from '../functions';
-import {Area, CoordinatesBox, Editor} from '../types';
+import {moveArea} from '../src/functions/functions';
+import {Area, CoordinatesBox, Editor} from '../src/types';
 
 describe('moveArea function', () => {
   test('returns Editor', () => {
-    const area: Area = {
-      coordinates: {
-        x: 0,
-        y: 0
-      },
-      size: {
-        width: 10,
-        height: 10
-      },
-      color: {
-        r: 0,
-        g: 0,
-        b: 0,
-        a: 0
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
+
+    let editor: Editor = {
+      canvas: imageData,
+      selectedObject: {
+        coordinates: {
+          x: 10,
+          y: 10
+        },
+        size: {
+          width: 10,
+          height: 10
+        },
       }
     }
     const coordinates: CoordinatesBox = {
       x: 15,
       y: 20
     };
-    const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
+    const lastArea: Area = {
+      coordinates: {...coordinates},
+      size: {
+        width: 10,
+        height: 10
       },
-      selectedObject: {...area},
-      stateList: null
     };
-    const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {
-        coordinates: {
-          x: 15,
-          y: 20
-        },
-        size: {
-          width: 10,
-          height: 10
-        },
-        color: {
-          r: 0,
-          g: 0,
-          b: 0,
-          a: 0
-        }},
-      stateList: null
-    };
+    let lastEditor: Editor = {
+      canvas: imageData,
+      selectedObject: lastArea,
+    }
     expect(moveArea(editor, coordinates)).toStrictEqual(lastEditor);
   });
 })

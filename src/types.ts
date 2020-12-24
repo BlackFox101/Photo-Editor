@@ -1,33 +1,13 @@
 type Editor = {
-  canvas: Canvas,
+  canvas: ImageData,
   selectedObject: SelectedObject,
-  stateList: StateList
 }
 
-type SelectedObject = Image | TextBox | ArtObject | Primitive | Area | null
+type SelectedObject = TextBox | ArtObject | Primitive | Area | ImageData | null
 
 type StateList = {
-  undo: Undo,
-  redo: Redo,
-} | null
-
-type Undo = {
-  stack: Canvas[]
-}
-type Redo = {
-  stack: Canvas[]
-}
-
-type Canvas = {
-  filter: Filter | null,
-  height: number,
-  width: number,
-  data: ImageData
-}
-
-type ImageData = {
-  width: number,
-  height: number
+  undo: ImageData[],
+  redo: ImageData[],
 }
 
 type Primitive = Circle | Rectangle | Triangle;
@@ -42,15 +22,9 @@ type Color = {
 type ObjectBox = {
   coordinates: CoordinatesBox,
   size: Size,
-  color: Color,
+  color: Color
 }
 
-type Image  = {
-  url: Url,
-  coordinates: CoordinatesBox,
-  size: Size,
-
-}
 type ArtObject = {
   url: Url,
   coordinates: CoordinatesBox,
@@ -59,8 +33,11 @@ type ArtObject = {
 type Circle = ObjectBox
 type Rectangle = ObjectBox
 type Triangle = ObjectBox
-type Area = ObjectBox
 type TextBox = ObjectBox
+type Area = {
+  coordinates: CoordinatesBox,
+  size: Size
+}
 
 type Url = string
 type Filter = string
@@ -75,15 +52,19 @@ type Size = {
   height: number
 }
 
+export interface image {
+  image: HTMLImageElement | null;
+}
+
+export interface EditorInterface {
+  editor: Editor
+}
+
 export type {
   Editor,
   SelectedObject,
   StateList,
-  Undo,
-  Redo,
-  Canvas,
   Primitive,
-  Image,
   ArtObject,
   Circle,
   Rectangle,

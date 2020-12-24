@@ -1,5 +1,5 @@
-import {insertPrimitive} from '../functions';
-import {Editor, Rectangle} from '../types';
+import {insertPrimitive} from '../src/functions/functions';
+import {Editor, Rectangle} from '../src/types';
 
 describe('insertPrimitive function', () => {
   test('returns Editor', () => {
@@ -19,33 +19,20 @@ describe('insertPrimitive function', () => {
         a: 1
       }
     }
+    const imageData: ImageData = {
+      width: 100,
+      height: 100,
+      data: new Uint8ClampedArray(10000)
+    }
+    imageData.data.fill(255);
     const editor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
+      canvas: imageData,
       selectedObject: null
-      ,
-      stateList: null
-    };
+    }
     const lastEditor: Editor = {
-      canvas: {
-        filter: null,
-        height: 100,
-        width: 100,
-        data: {
-          width: 100,
-          height: 100
-        }
-      },
-      selectedObject: {...rectangle},
-      stateList: null
-    };
+      canvas: imageData,
+      selectedObject: {...rectangle}
+    }
     expect(insertPrimitive(editor, rectangle)).toStrictEqual(lastEditor);
   });
 })

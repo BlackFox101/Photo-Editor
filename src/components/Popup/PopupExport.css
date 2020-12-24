@@ -1,0 +1,30 @@
+.divPopupExport {
+    font-family: sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: absolute;
+}
+
+.divPopupExport span {
+    font-size: 20px;
+    padding-bottom: 15px;
+}
+
+.popupSettings {
+    align-items: center;
+    width: 278px;
+    margin: 200px auto 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.buttonLeft {
+    margin-right: 20px;
+}
